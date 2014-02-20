@@ -1,0 +1,8 @@
+.idea/*
+*.iml
+platforms/android/
+www/css/
+www/img/
+www/js/
+www/*html*
+

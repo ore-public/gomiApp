@@ -26,6 +26,8 @@ controllers.controller 'TopCtrl', ($scope) ->
     tap: (e) ->
       console.log('test')
   }]
+  $scope.addUser = ->
+    console.log('form submit')
 
 controllers.controller 'userItemCtrl', ($scope) ->
   $scope.inc = ->

@@ -14,13 +14,23 @@ ion-view title="title" hide-back-button="true" left-buttons="leftButtons" right-
         | {{$index+1}} {{user.name|uppercase}} {{user.score|number:2}} {{user.birthday|date:'yyyy年 MM月 dd日'}}
         button.button-clear.button-positive ng-click='inc()'+1
         button.button-clear.button-calm ng-click='dec()'-1
-    form name="myName" ng-submit="addUser()"
-      p
-        .item.item-input-inset
-          | Name:
-          label.item-input-wrapper
-            input type="text" name="name" ng-model="user.name"
-      p
-        input type="submit" value="add"
+    form name="myForm" ng-submit="addUser()" novalidate="true"
+      .item.item-input-inset
+        | Name:
+        label.item-input-wrapper
+          input type="text" name="name" ng-model="user.name" required="" ng-minlength="5" ng-maxlength="8"
+      span ng-show="myForm.name.$error.required" Required!
+      span ng-show="myForm.name.$error.minlength" Too Short
+      span ng-show="myForm.name.$error.maxlength" Too Long
+      .item.item-input-inset
+        | Score:
+        label.item-input-wrapper
+          input type="number" name="score" ng-model="user.score"
+      .item.item-input-inset
+        | Email:
+        label.item-input-wrapper
+          input type="email" name="email" ng-model="user.email"
+      span ng-show="myForm.email.$error.email" not email
+      input type="submit" value="add"
     pre
       | {{user|json}}

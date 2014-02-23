@@ -31,6 +31,19 @@ ion-view title="title" hide-back-button="true" left-buttons="leftButtons" right-
         label.item-input-wrapper
           input type="email" name="email" ng-model="user.email"
       span ng-show="myForm.email.$error.email" not email
+      .item.item-input-inset
+        | 18+:
+        label.item-input-wrapper
+          input type="checkbox" name="adult" ng-model="user.adult" ng-true-value="adult" ng-false-value="child"
+      .item.item-input-inset
+        | Phone:
+        label.item-input-wrapper
+          input type="radio" name="phone" ng-model="user.phone" value="iPhone" iPhone
+          input type="radio" name="phone" ng-model="user.phone" value="Android" Android
+      .item.item-input-inset
+        label.item-input-wrapper
+          textarea ng-model="user.memo" ng-maxlength="140"
+      | {{140-user.memo.length}}
       input type="submit" value="add"
     pre
       | {{user|json}}

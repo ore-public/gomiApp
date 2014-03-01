@@ -44,6 +44,7 @@ ion-view title="title" hide-back-button="true" left-buttons="leftButtons" right-
         label.item-input-wrapper
           textarea ng-model="user.memo" ng-maxlength="140"
       | {{140-user.memo.length}}
+      select ng-model="user.color" ng-options="color for color in ['red', 'blue', 'ping']" ng-init="user.color='red'"
       input type="submit" value="add"
     pre
       | {{user|json}}
